@@ -10,7 +10,8 @@ class animal
     int age;
     int weight;
 
-    void operator<<(animal& obj) //obj is object
+    void operator<<(animal& obj) //obj is object here
+    
     {
         int value1=obj.age;
         int value2=obj.weight; 
