@@ -1,0 +1,136 @@
+1-) & show address of the pointer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+2-) 
+
+int a = 5; means at pos a 5 value is stored
+
+int * ptr = &a; means
+
+int - datatype, * - syntax/pointer creation/dereference operator , p - variable name , & - address of operator , a - variable
+
+means - ptr is a pointer to integer datatype
+
+just like
+ char * p =&ch;
+ p is a pointer to char datatype
+
+ ------------------------------imp-----------------------------------------------------------------------------
+
+ if a addrsss stored at for example 5 is store at block called a whose address is 104
+ so ptr calling address of a so it will save value 104
+
+----------------------------------------------------------------------------------------------------------------
+
+ 3) in pointer wew always store the address
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ 4) Pointer in c++ is variavble that store address of another variable.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+ 5) if take this example
+
+ int a = 5; 
+ int * ptr = &a;
+
+ if a addrsss stored at for example 5 is store at block called a whose address is 104
+ so ptr calling address of a so it will save value 104
+
+cout<<ptr; - will give address value of a i.e 104
+cout<<*ptr; - will give the value at location stored in ptr i.e at location 104 value stores is 5 , so 5 will be print out
+
+i.e 
+address - ptr
+value - *ptr
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+6) Live example-
+cout<<"Address of a is: "<<&a<<endl;
+cout<<"value stored at ptr is "<<ptr<<endl;
+cout<<"value ptr is pointing to is: "<<*ptr<<endl;
+
+o/p-
+Address of a is: 0x61ff08
+value stored at ptr is 0x61ff08
+value ptr is pointing to is: 5
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+7) Pointer always store same size i.e always 8 doesnt matter if data type is int,char,double or anything , size of pointer always is 8.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+8) when we need pointers-
+
+-> when we need dynamic memory allocation
+-> when we need memory management
+-> pointer arithmetics from moving one address to another address
+-> sometime to access hardware
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+9) for ex-
+  int *ptr;
+
+  cout<<*ptr<<endl;
+
+  this will give you segmentation error as you try to access memory which doesnt exist or keep away from your memory spaces
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+8) here if we take an array of list its base address is arr[0]
+   
+   for ex - arr={1,2,3,4,5,6}
+   so here arr base address is arr[0], we can represent it with '&arr' , &arr[0],'arr'
+   if arr[0] base address is 101 then arr base address is also '101'.
+
+   check for example 2.cpp.......
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+9) arr[i] and i[arr] are same
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+10) with the help of pointer we can access the sub part of array also
+    
+    for ex-
+    arr={1,2,3,4,5,6}
+    int* p = arr;
+    p=p+2;
+    it will read the base address of arr[2] i.e 3
+
+    but now you think we can do with arr also, it would not be possible as
+    arr=arr+2;
+    this will give the error so if we want to move inside of array we need pointer 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+11)  arr = arr + 1 not possible as we cant do change in symbol table as we cant update its value
+     but we can change p = p+1 as it is pointer and we changing in its memory value
+     for ex int arr base address is 100 so
+     p= 100
+     but when we do + 1, p = 104 as 1 int value size is 4 same we can update it 
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+12) char pointer and int pointer works differently
+    for example-
+    arr[5]=[1,2,3,4,5]
+    cout<<arr; - will give base address of arr[0]
+
+    char ch[10]='rayansh'
+    cout<<ch; - will give the string o/p as rayansh not base address
+
+    this is how they both are different
+
+13) 
+
+
+

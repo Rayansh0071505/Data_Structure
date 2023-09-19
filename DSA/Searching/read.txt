@@ -1,0 +1,19 @@
+-> Binary Search 
+
+in the binary search it divides the array into 2 halves and later on keep dividing it untill it found the searching element
+better than linear search
+condition-:
+1) Array should be in sorted order
+
+It also heve stl predefine function
+like 
+-> syntax
+    #include<algorithm>
+    vector<int> a{1,2,3,4,5}
+    binary_search(a.begin(),a.end(),key) - key means number to be searched
+
+-> syntax for array 
+    #include<algorithm>
+    int a=[1,2,3,4,5,6]
+    binary_search(a,a+size,key) - key means number to be searched
+    // it will be like binary_search(base address for start, base address+size for end, key need to be searched)

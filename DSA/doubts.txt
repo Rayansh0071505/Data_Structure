@@ -1,0 +1,149 @@
+DOUBT 1
+
+code -
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+void add(int size,vector<int>both,vector<int>arr)
+{
+    for(int i=0;i<size;i++)
+    {
+        both.push_back(arr[i]);
+    }
+}
+
+void unique(vector<int>both)
+{
+    sort(both.begin(),both.end());
+    vector<int>uni;
+    // int x=0;
+    for(int i=0;i<both.size();i++)
+    {
+        if(both[i]!=both[i+1])
+        {
+            uni.push_back(both[i]);
+        }
+    }
+    for(int i=0;i<uni.size();i++)
+    {
+        cout<<uni[i]<<" ";
+    }
+
+}
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    vector<int>arr(n);
+    vector<int>brr(m);
+    cout<<"Enter first list "<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"Enter second list "<<endl;
+    for(int j=0;j<m;j++)
+    {
+        cin>>brr[j];
+    }
+    vector<int>both;
+    add(n,both,arr);
+    add(m,both,brr);
+    cout<<"Print unique list"<<endl;
+    unique(both);
+    return 0;
+    
+
+}
+
+
+question - Its not printing anything
+solution - 
+void add(int size,vector<int>both,vector<int>a)
+{
+    for(int i=0;i<size;i++)
+    {
+        both.push_back(a[i]);
+    }
+}
+
+is there something wrong here?
+
+Yes, there is an issue in the add function you've provided. The issue is that you're passing the both vector by value,
+ which means that any changes you make to it inside the function won't affect the original vector outside the function. 
+ To solve this, you need to pass the both vector by [reference]. <-
+
+Here's the corrected version of the add function:
+
+void add(int size, vector<int> &both, const vector<int> &a)
+{
+    for (int i = 0; i < size; i++)
+    {
+        both.push_back(a[i]);
+    }
+}
+Note the & symbol before both and a in the function signature. This indicates that you're passing the vectors by reference, 
+so any changes you make to them inside the function will be reflected outside the function.
+
+Additionally, I've added the const keyword before vector<int> &a to indicate that the a vector is being passed as a constant reference
+, which means it won't be modified inside the add function.
+
+Make sure to update the function call in your main function accordingly:
+
+
+add(n, both, arr);
+add(m, both, brr);
+With these changes, the modifications made to the both vector inside the add function will correctly affect the original 
+both vector outside the function.
+
+
+in short just add '&' before giving vector name like vector<int> &both
+------------------------------------------------------------------------------------------------------------------------------
+
+Question - 
+why it worked and when we needed to put it as in past when i was passing array inside the function i dont need to put & 
+but why we needed it in vector??
+
+answer -
+Great question! Understanding when and why to use the `&` symbol (passing by reference) can be a bit nuanced,
+ especially when dealing with different types like arrays and vectors. Let's break it down:
+
+1. **Arrays:** When you pass an array to a function, you're actually passing a pointer to the array's first element.
+ This means that any changes made to the array inside the function will affect the original array outside the function.
+ This is why you don't need to use the `&` symbol when passing arrays – they're already being passed by reference
+ (technically by pointer).
+
+    Example:
+    ```cpp
+    void modifyArray(int arr[], int size) {
+        arr[0] = 100; // This modification will reflect in the original array
+    }
+    ```
+
+2. **Vectors:** Vectors are more complex than arrays. When you pass a vector to a function, by default, you're passing a copy of the
+    vector, not the original vector itself. So any changes made to the vector inside the function will not affect the original vector
+     outside the function. To modify the original vector inside the function, you need to pass it by reference using the `&` symbol.
+
+    Example:
+    ```cpp
+    void modifyVector(vector<int> vec) {
+        vec[0] = 100; // This modification won't affect the original vector
+    }
+    
+    void modifyVectorByReference(vector<int> &vec) {
+        vec[0] = 100; // This modification will affect the original vector
+    }
+    ```
+
+In the code you were working with, the `add` function was designed to modify the `both` vector by adding elements to it. 
+To ensure that these modifications affected the original `both` vector outside the function, you needed to pass the `both` vector by 
+reference using the `&` symbol.
+
+In summary, whether you need to use the `&` symbol depends on the behavior you want and the data type you're working with. 
+For vectors and other types where you want changes to be reflected outside the function, passing by reference is the way to go.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------

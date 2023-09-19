@@ -1,0 +1,24 @@
+vector do this when we fill the data in block it got full, it directly double the block for example if previous array size is 4 then 
+it will double its size to 8 if it got fill thats the main focus for using vector
+
+its used for dynamic array not static one
+
+for more reference use this website-
+1 cppreference.com
+2 cplusplus.com
+
+to add this in file use this #include<vector>
+
+agar koi file insert krna chate to we use
+
+-> for insert - push_back()
+like vector <int> arr;
+arr.push_back(5);
+
+-> to remove- pop_back()
+
+-> to check size - arr.size()
+
+-> to check capacity (how many element it can store) - arr.capacity()
+
+-> to check it is empty or not - arr.empty()- it will return true or false

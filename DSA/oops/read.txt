@@ -1,0 +1,450 @@
+1) For user define data type we will use the concept of class, with help of class we will make user define datatype
+
+2) when we have any idea we consider its as class while its implementation is known as object.object is instance/actual thing is object
+   while class is blueprint only.
+
+3) syntax - class Animal{
+    
+   };
+
+4) #include<iostream>
+using namespace std;
+
+class Animal{
+
+    // state or properties
+    int age;
+    string name;
+
+    //behaviour
+    void eat()
+    {
+
+    }
+
+    void function()
+    {
+        
+    }
+    
+};
+
+int main()
+{
+    // object creation
+
+    // static
+    Animal ramesh;
+
+    # if we want to access ramesh age who is member of animal class we access with help of "." operator.
+
+    cout<<"Age is"<<ramesh.age;
+
+    // age and name function cant be access as it is private
+
+    // dynamic memory
+}
+
+5) Access Modifier
+   
+   these define the scope of class
+   
+   There are 3 types of access Modifier-
+   ->Public - if scope is public i can access inside and outside of class
+   ->private - if value/state is marked private i can access inside only in class not outside
+   ->Protected
+
+
+   By default it is marked private
+
+
+6) By default it is marked private
+   
+   to make it public do this
+
+   class animal{
+
+    public:
+
+    // functions
+
+    void eat()
+    {
+        
+    }
+
+    void sleep()
+    {
+
+    }
+   };
+
+7) To mark one state public or one state private
+
+   here our eat function is public while sleep function is private
+   
+   class animal{
+
+    public:
+
+    // functions
+
+    void eat()
+    {
+        
+    }
+    
+    private:
+
+    void sleep()
+    {
+
+    }
+   };
+
+8) If we want to access private members we will use get and set
+   
+   class animal
+   {
+   private:
+   int weight;
+   public:
+   int getweight()
+   {
+      return weight;
+   }
+
+   int setweight(int w)
+   {
+      weight = w;
+   }
+   };
+
+   int main()
+   {
+      ramesh.setweight(101);
+      cout<<"weight"<< ramesh.weight<<endl;
+
+   }
+
+   // its all static memory
+
+9) There are two types of memory -
+   
+   -> STACK
+   -> HEAP
+
+   STACK- it is smaller in size and here we allocate datatypelike int a,
+   string str, int arr[10], this is statis memory allocation
+
+   HEAP - here we locate dynamic memory allocation, here we allocate with help of
+   "new"
+    for ex - new int
+
+    new int is returning address of pointer
+    int* a = new int; 
+
+    new int is stored in heap while int* a is in STACK
+    for ex - new int address is h112
+    so in int*a h112 value will be stored which will be pointing towards heap memory.
+
+    for ex - int* ptr - new int[5]
+    in heap 5 int value is allocated whose base address pointer is in stack i.e ptr stored in stack with base
+    address of new int[5]
+
+10) In stack memory is automatically cleaned, while in heap we have to clean manually
+
+    we use "delete" - deallocation(delete for cleaning).
+    while "new" is used for allocation
+
+11) Read about memory leak
+
+12) How we access it
+    
+    in static memory
+    Animal a
+
+    we access animal class who have weight,age, type as function
+    a.weight,a.type,a.age
+
+    in dynamic memory
+    Animal* b = new Animal;
+    b->age    // it just a var
+    b->type() // it is function
+    b->weight()
+
+13) In dynamic memory new keyword always returns address
+
+14) "this" use of this to point out current pointer ,
+     it will be used when we have two variable with same name , declare in two different scope
+
+     just for knowledge - it will take the variable/object value which is declared in nearly most closed scope
+     
+     just go to the video - oops-1 48 min
+
+     here "this" is the pointer
+
+    class animal{
+      private:
+      int weight;
+      public:
+      void setweight(int weight)
+      {
+         this->weight=weight; // this will point that this weight belong to above declearation
+        
+      }
+    }
+
+
+15) Constructor -
+    
+    works same as class
+    used to initialise object
+    no returntype
+    name same as class
+    initialise object
+
+    syntax-
+
+    class animal
+    {
+        public:
+        int name;
+        int weight;
+
+        animal()
+        {
+            cout<<"Constructor called "<<endl;
+        }
+    };
+      int main()
+      {
+            animal a; // static way to call
+            animal* b = new animal(); // dynamic way
+      }
+
+      here if we pass some default value and called in as class it will called the default value
+
+
+16)  To call dynamic value, we call with help of "->" 
+     for static we use "." operator
+     
+     static--
+     animal a;
+     a.age;
+     a.name;
+
+     dynamic---
+     animal *b=new animal()
+     b->name;
+     b->age;
+
+17) we do always initialization inside class in constructor as it is good habit
+
+18) COPY Constructor
+    
+    animal a;
+    animal b=a;
+    or 
+    animal b(a);
+
+19) IMP ->  Precaution while using "copy" constructor
+    
+    we have to send the value inside parameter with "pass by reference" not "pass by value"
+    as "pass by value creates copy of it" so it infinitely revolve around it while "pass by reference"
+    send the respected address and doesnot create copy of it.
+
+    ex - Error
+    animal(animal obj) // pass by value
+    {
+
+    }
+
+    animal(animal &obj) // pass by reference
+    {
+
+    }
+
+20) By default our constructor do "shallow copying" so to avoid shallow copying
+    we use copy constructor for "deep copying"    
+
+
+21) Destructor
+    
+    used to remove or set free the space accumulated by constructor
+    sign - ~
+    in static memory it deleted by itself
+    in dynamic memory we hace to delete it manually with help of "delete"
+
+    for more info see 7.cpp
+
+22) See 8.cpp for all practical implementation till here.
+
+------------------------------------------------------Day-2-------------------------------------------------------------------------
+
+23) 4 pillars of oops-
+    ->Encapsualtion
+    ->Inheritance
+    ->Polymorphism
+    ->Abstraction
+
+24) Encapsualtion - Encapsualtion is process in which we encapsulate or store/keep our data member and member function allocated
+                    at one place, for example we have 2000,500 note so we basically keep in our purse so our purse is encapsulating 
+                    the notes i.e storing/hiding/wrapping.It do data hiding.
+
+                    basically class is also like a default encapsulation
+
+    Perfect Encapsualtion  - when all are data members are private it is called Perfect encapsulation.
+
+    use of encapsulation-
+    -> use to increase security
+    -> can be used which data to shown or which not
+    -> can make class only read only no modification allowed
+    -> It do data hiding.
+    
+    Encapsualtion of data member and member function
+
+    class animal
+    {
+        public:
+        int weight,age;  // data member
+
+        void eat()  // member function
+        {
+            cout<<"Encapsualation of member function "<<endl;
+        }
+
+    };
+
+    int main()
+    {
+        animal* a = new animal;
+        a->eat();
+    }
+
+25) Abstraction - To get the information on above level i.e not in detail for example if we have error in code instead of telling
+                  where it is wrong, it only tells about ok there is error in code, no explanation
+
+                  its way how you abstract yourself for ex- if you have fight with your gf, she came and slap you, its her abstract
+                  way of explanation she is angry with you instead of going on details
+
+                  Abstraction means hiding the details.We are talking point to point.
+
+26) Inheritance - In Inheritance we created super/parent/base class where its properties will be inherited by the child class.
+                  It inherited all the original properties of base class
+                  
+                  for ex-
+
+                    class animal
+                    {
+                        public:
+                        int age,weight;
+
+                        void eat()
+                        {
+                            cout<<"Eating "<<endl;
+                        }
+
+                    };
+
+                    // child class
+
+                    class dog:public animal
+                    {
+
+                    };
+
+                    int main()
+                    {
+                        dog d1;
+                        d1.eat();
+                        return 0;
+                    }
+                  
+                for reference and example see 11.cpp
+
+27)  
+|----------------------------------------------------------|
+| Base class ka        |                                   |
+| access Modifier      | Mode of Inheritance               |
+|                      |-----------------------------------|
+|                      | Public    | Protected | Private   |
+|----------------------|-----------|-----------|-----------|
+| Public               | Public    | Protected | N/A       |
+| Protected            | Protected | Protected | Protected |
+| Private              | N/A       | N/A       | N/A       |
+|----------------------------------------------------------|
+
+
+base class Modifier is - in above example animal
+                        class animal
+                    {
+                        public:           |
+                                          |------------- it is base class Modifier which show age and weight are public
+                        int age,weight;   |
+
+                        void eat()
+                        {
+                            cout<<"Eating "<<endl;
+                        }
+
+                    };
+
+mode of Inheritance ex - class dog:public animal- public connecting child with parent class is "mode of Inheritance"
+
+28) Why there is need to create public private or protected mode of transmission?
+    
+ans-We create mode of transmission protected and private when we need to allow child class only to access parent data members
+    through functions inside it i.e its member function can be call inside its function and child class can call function which can
+    access data member.
+
+    But child class will not be able to access parent class data members.
+    As this is done so no changes can be done directly by child class to data members of parent class
+    Its just like read only for child class.
+
+    It can be possible through "protected" class only "private" class will not allow to access member even inside the functions
+    of child class.
+
+29) protected parent class data meber and mode of transmission is protected / public / private - it always give protected member only
+    i.e you can access only inside child class not access direcly data member of parent class
+
+    even if data member is protected parent class even can access its data member directly
+
+30) Inheritance -
+
+-> single Inheritance
+-> multi-level Inheritance
+-> multiple Inheritance
+-> heirarchical Inheritance
+-> Hybrid Inheritance
+
+31) Multiple Inheritance is not possible in java but possible in c++
+
+32) interview question in Inheritance - types and what is diamond problem and how you solved it
+
+33) in oops generally they ask for Polymorphism
+
+34) Polymorphism - poly means many and morphism means existing many forms.
+
+   It is of 2 types-
+
+   1) Compile-time Polymorphism
+   2) Run-time Polymorphism
+
+35) Compile-time Polymorphism
+    
+    It is of 2 type-
+    1)function overloading
+    2)operator overloading
+
+36) Func
+
+37) operator overloading - in operator overloading it is task to given to change the functionality of operator i.e
+    for ex the operator + we have to change its functionality like obj 1 + obj 2 will  make subract obj1 -obj2, it is not so common 
+    but for ex take it you have to print many function so we write operator overloading such that it print all function
+    for ex cout<<obj1 will print 5 function we dont need to write obj.eat(),obj.func(),obj.something() and etc.
+
+    Just thats work of operator overloading to reduce writing pressure
+    
+
+

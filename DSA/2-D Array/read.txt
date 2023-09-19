@@ -1,0 +1,35 @@
+int arr[row][col] - 2d matrix
+
+to get exact number of the element we will do col*ith row*jth col
+
+see always remember when you make function with 2d array the value inside of 2d array in function should be same as value during
+initialization of array inside main()
+like
+
+void example(int arr[][10])
+{
+
+}
+int main()
+{
+    int arr[][10];
+}
+
+-> Now if we going to use vector for 2d array we will do like this
+syntax - vector<vector<int> >arr;
+
+->we will access arr like normal one, like this arr[][]
+
+-> Now question arise how you make 3x4 matrix inside vector
+vector<vector<int> > arr(3,vector<int>(4));
+    //<int> > dono brackett ke beech space rakhna
+
+
+int row=3;
+int col=5;
+
+->  vector<vector<int> >arr(row,vector<int>(col,69));
+    // this line means 3 row 5 col value filled with 69 , col is size of inner vector
+
+    // vector<vector<int> >arr(n,0) means 2d int array banana
+    -> n means size,0 means initialised value
