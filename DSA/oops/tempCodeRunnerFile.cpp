@@ -1,0 +1,4 @@
+  void speak()
+    {
+        cout<<"Speaking";
+    }

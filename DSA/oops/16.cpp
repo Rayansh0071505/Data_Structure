@@ -1,4 +1,4 @@
-// Mupltiple Inheritance
+// Muplti-level Inheritance 
 
 #include<iostream>
 using namespace std;

@@ -147,3 +147,92 @@ For vectors and other types where you want changes to be reflected outside the f
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
+
+Question: when to use reference how to iter in array 2 ways
+for example in our question we have to change letter a with y in given string
+
+way-1
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string n = "hari hari ram";
+
+    for (char& c : n)
+    {
+        if (c == 'a')  // Corrected comparison and character assignment
+        {
+            c = 'y';  // Corrected assignment
+        }
+    }
+
+    for (char c : n)
+    {
+        cout << c;
+    }
+
+    return 0;
+}
+
+
+way-2
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string n = "rayanaaaa";
+
+    for(int i = 0; i < n.size(); i++)
+    {
+        char& ch = n[i];  // Use a reference to modify the character
+        if(ch == 'a')
+        {
+            ch = 'y';
+        }
+    }
+
+    for(char ch : n)
+    {
+        cout << ch;
+    }
+
+    return 0;
+}
+
+Question - now why char& ch why using reference?
+ans- 
+    In the corrected code, a reference (`char& ch`) is used to modify the characters in the string. 
+    The use of a reference is necessary to ensure that the modifications made to the characters inside the loop persist 
+    and reflect in the original string `n`.
+
+In C++, when you iterate over a string using a for loop like this:
+
+    ```cpp
+    for (int i = 0; i < n.size(); i++)
+    {
+        char ch = n[i];
+        // ...
+    }
+    ```
+
+    The `char ch` creates a copy of each character from the string, and modifications to `ch` won't affect the original string `n`. 
+    To modify the original string, we use a reference:
+
+    ```cpp
+    for (int i = 0; i < n.size(); i++)
+    {
+        char& ch = n[i];  // Use a reference to the actual character in the string
+        // ...
+    }
+    ```
+
+    By using `char& ch`, we're creating a reference to the actual character in the string, so any 
+    modifications to `ch` will directly modify the corresponding character in the original string `n`.
+
+    Without using a reference, any changes made to `ch` inside the loop won't affect the original string. 
+    Using a reference ensures that the modifications persist and are reflected in the original string.
+
+---------------------------------------------------------------------------------------------------------------------------------

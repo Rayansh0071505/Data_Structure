@@ -24,6 +24,6 @@ int main()
     animal obj;
     obj.age=10;
     obj.weight=20;
-    obj<<obj;
+    obj<<obj; // 2obj because 2 object age and weight
     return 0;
 }
