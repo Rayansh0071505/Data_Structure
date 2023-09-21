@@ -1,5 +1,5 @@
 // Run-Time Polymorphism
-// Function overriding
+// Function/method overriding
 
 #include<iostream>
 using namespace std;
