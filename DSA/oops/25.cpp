@@ -45,6 +45,12 @@ int main()
     dog* d = (dog*) new animal;
     // to call parent class with child class we need to write format like this
     // but only parent constructor will call because its not dependent on anyone while
- // in case of parent to child child and parent constructor is calling as child class dependent on parent class typical inheritance case
+// in case of parent to child child and parent constructor is calling as child class dependent on parent class typical inheritance case
     // child_class* c = (child_class*) new parent_class;
+
+    cout<<endl;
+    cout<<"child to child class "<<endl;
+    cout<<endl;
+
+    dog* doggy = new dog;
 }
